@@ -92,11 +92,6 @@
       <version>22.3.0</version>
     </dependency>
 
-    <dependency>
-      <groupId>org.camunda.bpm</groupId>
-      <artifactId>camunda-engine-plugin-connect</artifactId>
-    </dependency>
-
     <!-- Required to use Spin dataformat support -->
     <dependency>
       <groupId>org.camunda.spin</groupId>
