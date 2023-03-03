@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="54536fd7-ce97-43af-b1e0-f8a10d22f3d7" name="Changes" comment="pom ajuste">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/BuscarEndereco.java" afterDir="false" />
+    <list default="true" id="54536fd7-ce97-43af-b1e0-f8a10d22f3d7" name="Changes" comment="javadelegate teste">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Endereco.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ViaCepController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/BuscarEndereco.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/BuscarEndereco.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/process.bpmn" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/process.bpmn" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +35,9 @@
         <option name="workspaceImportEnabled" value="true" />
       </MavenImportingSettings>
     </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectId" id="2MTd2p16gHqrG9CUIZIikzB7E84" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -82,26 +88,30 @@
       <option name="project" value="LOCAL" />
       <updated>1677800138882</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="javadelegate teste">
+      <created>1677803351278</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1677803351278</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="pom connector" />
     <MESSAGE value="pom connector retirar" />
     <MESSAGE value="pom ajuste" />
-    <option name="LAST_COMMIT_MESSAGE" value="pom ajuste" />
+    <MESSAGE value="javadelegate teste" />
+    <option name="LAST_COMMIT_MESSAGE" value="javadelegate teste" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
+        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/example/BuscarEndereco.java</url>
-          <line>13</line>
-          <properties class="org.example.BuscarEndereco" method="execute">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="1" />
+          <line>18</line>
+          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

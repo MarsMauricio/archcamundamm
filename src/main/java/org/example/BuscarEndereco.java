@@ -1,8 +1,10 @@
 package org.example;
 
+import camundajar.impl.scala.Console;
 import org.camunda.bpm.engine.delegate.DelegateExecution;
 import org.camunda.bpm.engine.delegate.JavaDelegate;
 import org.springframework.stereotype.Component;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.logging.Logger;
 
@@ -10,12 +12,18 @@ import java.util.logging.Logger;
 public class BuscarEndereco implements JavaDelegate {
 
     private final Logger LOGGER = Logger.getLogger(BuscarEndereco.class.getName());
+    private ViaCepController viaCepController;
 
     public void execute(DelegateExecution execution) throws Exception {
 
-        String nome = (String)execution.getVariable("teste");
+        String cep = (String)execution.getVariable("cep");
 
-        LOGGER.info("Variavel nome:" + nome);
+        RestTemplate restTemplate = new RestTemplate();
+        String url = "http://localhost:8080/endereco/"+cep;
+        Endereco endereco = restTemplate.getForObject(url, Endereco.class);
+
+        assert endereco != null;
+        execution.setVariable("bairro", endereco.getBairro());
 
     }
 

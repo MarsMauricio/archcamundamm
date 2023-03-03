@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="3.1.2">
-  <bpmn:process id="archcamundamm" name="archcamundamm" isExecutable="true">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.7.0">
+  <bpmn:process id="archcamundamm" name="archcamundamm" isExecutable="true" camunda:versionTag="3.0">
     <bpmn:startEvent id="StartEvent" name="Request&#10;received">
       <bpmn:outgoing>SequenceFlow1</bpmn:outgoing>
     </bpmn:startEvent>
@@ -9,10 +9,20 @@
       <bpmn:incoming>SequenceFlow1</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow2</bpmn:outgoing>
     </bpmn:serviceTask>
-    <bpmn:sequenceFlow id="SequenceFlow2" sourceRef="ServiceTask_Logger" targetRef="EndEvent" />
+    <bpmn:sequenceFlow id="SequenceFlow2" sourceRef="ServiceTask_Logger" targetRef="Delegate_Teste" />
     <bpmn:endEvent id="EndEvent" name="Request&#10;processed">
-      <bpmn:incoming>SequenceFlow2</bpmn:incoming>
+      <bpmn:incoming>Flow_08b73cw</bpmn:incoming>
     </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_14ip4bz" sourceRef="Delegate_Teste" targetRef="Activity_1d43i7o" />
+    <bpmn:serviceTask id="Delegate_Teste" name="Buscar Endereco" camunda:delegateExpression="${buscarEndereco}">
+      <bpmn:incoming>SequenceFlow2</bpmn:incoming>
+      <bpmn:outgoing>Flow_14ip4bz</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_08b73cw" sourceRef="Activity_1d43i7o" targetRef="EndEvent" />
+    <bpmn:userTask id="Activity_1d43i7o" name="Verificar Tarefa">
+      <bpmn:incoming>Flow_14ip4bz</bpmn:incoming>
+      <bpmn:outgoing>Flow_08b73cw</bpmn:outgoing>
+    </bpmn:userTask>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="archcamundamm">
@@ -22,29 +32,44 @@
           <dc:Bounds x="171" y="138" width="41" height="24" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ServiceTask_16vok30_di" bpmnElement="ServiceTask_Logger">
+        <dc:Bounds x="337" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1xzeqqc_di" bpmnElement="Delegate_Teste">
+        <dc:Bounds x="530" y="80" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="EndEvent_0fkea3f_di" bpmnElement="EndEvent">
-        <dc:Bounds x="556" y="102" width="36" height="36" />
+        <dc:Bounds x="852" y="102" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="554" y="138" width="41" height="24" />
+          <dc:Bounds x="845" y="138" width="51" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_10k41hx_di" bpmnElement="Activity_1d43i7o">
+        <dc:Bounds x="690" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_08va5r8_di" bpmnElement="SequenceFlow1">
-        <di:waypoint xsi:type="dc:Point" x="209" y="120" />
-        <di:waypoint xsi:type="dc:Point" x="337" y="120" />
+        <di:waypoint x="209" y="120" />
+        <di:waypoint x="337" y="120" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="228" y="95" width="90" height="20" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow2_di" bpmnElement="SequenceFlow2">
-        <di:waypoint xsi:type="dc:Point" x="437" y="120" />
-        <di:waypoint xsi:type="dc:Point" x="556" y="120" />
+        <di:waypoint x="437" y="120" />
+        <di:waypoint x="530" y="120" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="496.5" y="99" width="0" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="ServiceTask_16vok30_di" bpmnElement="ServiceTask_Logger">
-        <dc:Bounds x="337" y="80" width="100" height="80" />
-      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_14ip4bz_di" bpmnElement="Flow_14ip4bz">
+        <di:waypoint x="630" y="120" />
+        <di:waypoint x="690" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_08b73cw_di" bpmnElement="Flow_08b73cw">
+        <di:waypoint x="790" y="120" />
+        <di:waypoint x="852" y="120" />
+      </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
 </bpmn:definitions>
